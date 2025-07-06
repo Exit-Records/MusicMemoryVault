@@ -1,4 +1,4 @@
-# sBridge- Artist Portfolio
+# dBridge- Artist Portfolio
 
 A comprehensive artist portfolio website showcasing vintage jungle and electronic music releases, photography, merchandise, and philosophy content with a full-featured admin management system.
 
