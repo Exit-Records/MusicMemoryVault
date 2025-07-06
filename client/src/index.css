@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove Inter font import and use system Helvetica Neue */
+
+/* Apply Helvetica Neue Light globally */
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300; /* Light weight */
+}
+
+/* Override font weights for specific elements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300; /* Keep headers light */
+}
+
+.font-bold {
+  font-weight: 400; /* Make "bold" elements just normal weight */
+}
+
+.font-semibold {
+  font-weight: 400; /* Make "semibold" elements normal weight */
+}
+
+.font-medium {
+  font-weight: 400; /* Make "medium" elements normal weight */
+}
+
+.font-light {
+  font-weight: 300; /* Ensure light stays light */
+}
+
+:root {
+  --background: hsl(45, 37%, 91%); /* #F3EFE0 converted to HSL */
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(20, 14.3%, 4.1%);
+  --primary-foreground: hsl(60, 9.1%, 97.8%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(245, 58%, 51%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Custom colors for the portfolio */
+  --neutral: hsl(215, 20.2%, 65.1%);
+  --gray-50: hsl(210, 20%, 98%);
+  --gray-100: hsl(220, 14.3%, 95.9%);
+  --gray-200: hsl(220, 13%, 91%);
+  --gray-300: hsl(216, 12.2%, 83.9%);
+  --gray-600: hsl(215, 16.3%, 46.9%);
+  --gray-700: hsl(215, 19.3%, 34.5%);
+  --gray-800: hsl(215, 27.9%, 16.9%);
+  --gray-900: hsl(215, 28%, 9%);
+}
+
+/* Dark mode with black background and custom text color */
+.dark {
+  --background: hsl(0, 0%, 0%); /* Pure black background */
+  --foreground: hsl(45, 37%, 91%); /* #F3EFE0 converted to HSL */
+  --muted: hsl(0, 0%, 8%);
+  --muted-foreground: hsl(45, 20%, 70%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(45, 37%, 91%);
+  --card: hsl(0, 0%, 3%);
+  --card-foreground: hsl(45, 37%, 91%);
+  --border: hsl(0, 0%, 15%);
+  --input: hsl(0, 0%, 15%);
+  --primary: hsl(45, 37%, 91%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 8%);
+  --secondary-foreground: hsl(45, 37%, 91%);
+  --accent: hsl(245, 58%, 55%);
+  --accent-foreground: hsl(45, 37%, 91%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(45, 37%, 91%);
+  --ring: hsl(0, 0%, 15%);
+  
+  /* Dark mode custom colors using inverted palette */
+  --neutral: hsl(45, 20%, 50%);
+  --gray-50: hsl(0, 0%, 0%);
+  --gray-100: hsl(0, 0%, 3%);
+  --gray-200: hsl(0, 0%, 8%);
+  --gray-300: hsl(0, 0%, 15%);
+  --gray-600: hsl(45, 20%, 70%);
+  --gray-700: hsl(45, 25%, 80%);
+  --gray-800: hsl(45, 30%, 85%);
+  --gray-900: hsl(45, 37%, 91%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(0, 0%, 98%);
+  --primary-foreground: hsl(240, 5.9%, 10%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(245, 58%, 51%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom utility classes */
+.text-primary {
+  color: var(--primary);
+}
+
+.text-neutral {
+  color: var(--neutral);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.hover\:bg-accent\/90:hover {
+  background-color: hsl(245, 58%, 51%, 0.9);
+}
+
+.bg-gray-50 {
+  background-color: var(--gray-50);
+}
+
+.bg-gray-100 {
+  background-color: var(--gray-100);
+}
+
+.bg-gray-200 {
+  background-color: var(--gray-200);
+}
+
+.bg-gray-300 {
+  background-color: var(--gray-300);
+}
+
+.bg-gray-600 {
+  background-color: var(--gray-600);
+}
+
+.bg-gray-700 {
+  background-color: var(--gray-700);
+}
+
+.bg-gray-800 {
+  background-color: var(--gray-800);
+}
+
+.bg-gray-900 {
+  background-color: var(--gray-900);
+}
+
+.text-gray-300 {
+  color: var(--gray-300);
+}
+
+.text-gray-600 {
+  color: var(--gray-600);
+}
+
+.text-gray-700 {
+  color: var(--gray-700);
+}
+
+.border-gray-200 {
+  border-color: var(--gray-200);
+}
+
+.border-gray-700 {
+  border-color: var(--gray-700);
+}
+
+/* Enhanced smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.transition-colors {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease;
+}
+
+/* Theme transition support for common elements */
+body, div, nav, main, aside, section, article, header, footer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button, input, select, textarea {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom backdrop blur */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
